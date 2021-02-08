@@ -20,11 +20,29 @@
     <label for="item">Add New Item</label>
     <br>
     <input type="text" name="item" id="item">
-    <button type="submit">Add</button>
+    <button type="submit" id="submitButton">Add</button>
   </form>
 
   <script>
     // JavaScript goes here
+
+    //setting variables
+    let button = document.getElementById("submitButton");
+    let list = document.getElementById("shoppingList");
+    let input = document.getElementById("item")
+
+    //creating the add new item to list function
+    function addNewItem(event) {
+      let newItem = document.createElement("li");
+      newItem.innerText = input.value;
+      list.appendChild(newItem);
+      input.value = ""
+      event.preventDefault();
+      console.log("added item")
+    }
+
+    button.addEventListener("click", addNewItem)
+    
     
   </script>
 </body>
